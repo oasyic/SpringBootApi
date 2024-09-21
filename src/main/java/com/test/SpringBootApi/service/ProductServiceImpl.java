@@ -19,8 +19,9 @@ public class ProductServiceImpl implements ProductService {
             return productRepository
                     .save(
                     new Product(
-                            product.getProductName(),
-                            product.getPrice()
+                            product.getBookName(),
+                            product.getPrice(),
+                            product.getAuthor()
                     )
             );
         } catch (Exception e) {
@@ -50,8 +51,9 @@ public class ProductServiceImpl implements ProductService {
             Optional<Product> productData = productRepository.findById(id);
             if (productData.isPresent()) {
                 Product _product = productData.get();
-                _product.setProductName(product.getProductName());
+                _product.setBookName(product.getBookName());
                 _product.setPrice(product.getPrice());
+                _product.setAuthor(product.getAuthor());
                 productRepository.save(_product);
                 return _product;
             } else {

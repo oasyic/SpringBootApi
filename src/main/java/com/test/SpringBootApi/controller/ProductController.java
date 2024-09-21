@@ -17,7 +17,7 @@ public class ProductController {
     @Autowired
     ProductServiceImpl productService;
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/books/{id}")
     public ResponseEntity<Optional<Product>> getProductById(@PathVariable("id") long id) {
 
         try {
@@ -28,7 +28,7 @@ public class ProductController {
         return null;
     }
 
-    @PostMapping("/products")
+    @PostMapping("/books")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         try {
             ResponseEntity
@@ -40,7 +40,7 @@ public class ProductController {
         return null;
     }
 
-    @PutMapping("/products/{id}")
+    @PutMapping("/books/{id}")
     public ResponseEntity<Product> updateProduct(
             @PathVariable("id") long id,
             @RequestBody Product product
@@ -55,7 +55,7 @@ public class ProductController {
         return null;
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/books/{id}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("id") long id) {
         try {
             productService.delete(id);
